@@ -1,0 +1,17 @@
+# Build directories
+/build/
+/build-*/
+/cmake-build-*/
+
+# Kaixa
+.kaixa/
+Kaixa.user.toml
+
+# Misc
+*.o
+*.a
+*.exe
+*.pdb
+*.ilk
+.cache/
+compile_commands.json
