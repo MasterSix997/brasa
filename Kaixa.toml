@@ -1,0 +1,20 @@
+imports = ["config/providers.toml"]
+
+[package-set]
+name = "brasa"
+members = ["libs/*"]
+
+[package-set.policy]
+cxx = 20
+msvc-runtime = "static"
+
+[package]
+name = "brasa"
+version = "0.1.0-dev"
+resolver = "cmake"
+
+[lib]
+type = "interface"
+
+[public-dependencies]
+brasa_ecs = { version = "^0.1.0-dev" }

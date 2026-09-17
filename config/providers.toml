@@ -1,0 +1,40 @@
+[[provider]]
+name = "upstream"
+driver = "package-map"
+default = true
+
+[[provider.package]]
+name = "googletest"
+version = "1.17.0"
+source.driver = "git"
+source.url = "https://github.com/google/googletest.git"
+source.tag = "v1.17.0"
+consumer.resolver = "cmake"
+consumer.mode = "add-subdirectory"
+consumer.options.BUILD_GMOCK = true
+consumer.options.INSTALL_GTEST = false
+consumer.options.gtest_force_shared_crt = false
+consumer.aliases.googletest = "GTest::gtest_main"
+products.default = "googletest"
+
+[[provider.package]]
+name = "google_benchmark"
+version = "1.9.4"
+source.driver = "git"
+source.url = "https://github.com/google/benchmark.git"
+source.tag = "v1.9.4"
+consumer.resolver = "cmake"
+consumer.mode = "add-subdirectory"
+consumer.options.BENCHMARK_ENABLE_TESTING = false
+consumer.options.BENCHMARK_ENABLE_GTEST_TESTS = false
+consumer.options.BENCHMARK_ENABLE_WERROR = false
+consumer.options.BENCHMARK_ENABLE_INSTALL = false
+consumer.options.BENCHMARK_INSTALL_DOCS = false
+consumer.patch-targets.benchmark.compile-options = [
+    "$<$<COMPILE_LANG_AND_ID:CXX,Clang,AppleClang>:-Wno-c2y-extensions>",
+]
+consumer.patch-targets.benchmark_main.compile-options = [
+    "$<$<COMPILE_LANG_AND_ID:CXX,Clang,AppleClang>:-Wno-c2y-extensions>",
+]
+consumer.aliases.google_benchmark = "benchmark::benchmark_main"
+products.default = "google_benchmark"

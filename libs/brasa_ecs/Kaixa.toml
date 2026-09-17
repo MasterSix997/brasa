@@ -1,0 +1,16 @@
+[package]
+name = "brasa_ecs"
+version = "0.1.0-dev"
+resolver = "cmake"
+tests = ["tests"]
+benchmarks = ["benchmarks"]
+
+[lib]
+type = "static"
+sources = ["brasa_ecs/**/*.cpp"]
+headers = ["brasa_ecs/**/*.hpp"]
+public-headers = [
+    "brasa_ecs/brasa_ecs.hpp",
+    "brasa_ecs/fwd.hpp",
+]
+public-include = ["."]

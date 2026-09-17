@@ -1,0 +1,4 @@
+[[benchmark]]
+name = "brasa_ecs.benchmarks"
+sources = ["*.cpp"]
+framework = "google-benchmark"

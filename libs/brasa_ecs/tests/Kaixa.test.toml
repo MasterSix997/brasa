@@ -1,0 +1,7 @@
+[[test]]
+name = "brasa_ecs.tests"
+sources = [
+    "*.cpp",
+    "../brasa_ecs/**/*.test.cpp",
+]
+framework = "googletest"
